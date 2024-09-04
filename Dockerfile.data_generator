@@ -1,0 +1,14 @@
+# Usa una imagen base de PythonE
+FROM python:3.9-slim
+
+# Establece el directorio de trabajo dentro del contenedor
+WORKDIR /app
+
+# Copia el archivo data_generator.py al contenedor
+COPY data_generator.py /app/
+
+# Instala las dependencias necesarias
+RUN pip install paho-mqtt
+
+# Comando para ejecutar el script cuando el contenedor se inicie
+CMD ["python", "data_generator.py"]
